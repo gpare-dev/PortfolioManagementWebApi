@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Portfolio Management";
+}
+
+<table id="holdings" class="table table-hover caption-top">
+  <caption>Portfolio holdings</caption>
+  <thead>
+    <tr>
+      <th style="width: 10%" scope="col">#</th>
+      <th style="width: 15%" scope="col">Ticker Exchange</th>
+      <th style="width: 40%" scope="col">Name</th>
+      <th style="width: 15%" scope="col">Weight</th>
+      <th style="width: 10%" scope="col"></th>
+      <th style="width: 10%" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<button type="button" id="card-todo" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#add-holding">Add holding</button>
+<div id="last-modified-date"></div>
+
+<div class="modal" id="add-holding" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="add-holding" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="add-holding-form">
+                <div class="modal-header">
+                    <h5 class="modal-title">New holding</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="inputTickerExchange" placeholder="Ticker Exchange">
+                      <label for="inputTickerExchange">Ticker Exchange</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="inputName" placeholder="Name">
+                      <label for="inputName">Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" id="inputWeight" placeholder="Weight">
+                      <label for="inputWeight">Weight (%)</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Add holding</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="edit-holding" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="edit-holding" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="edit-holding-form">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit holding</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="inputNewTickerExchange" placeholder="Ticker Exchange" disabled>
+                      <label for="inputNewTickerExchange">Ticker Exchange</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="inputNewName" placeholder="Name">
+                      <label for="inputNewName">Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" id="inputNewWeight" placeholder="Weight">
+                      <label for="inputNewWeight">Weight (%)</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Edit holding</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
