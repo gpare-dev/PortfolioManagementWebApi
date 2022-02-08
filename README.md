@@ -20,7 +20,7 @@ When adding a new holding, the API make sure that there is enough cash and that 
 
 ![Web App add holding](web-app-add-holding.PNG)
 
-![Web App add holding error](web-app-add-holding-error.PNG)
+![Web App add holding error](web-app-add-error.PNG)
 
 ![Web App edit holding](web-app-edit-holding.PNG)
 
